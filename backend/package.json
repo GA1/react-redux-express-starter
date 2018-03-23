@@ -1,0 +1,16 @@
+{
+  "name": "test-hsk-writing-backend",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "express": "^4.16.3"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "jest __test__ --watch"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.2",
+    "jest-cli": "^23.0.0-alpha.0"
+  }
+}
