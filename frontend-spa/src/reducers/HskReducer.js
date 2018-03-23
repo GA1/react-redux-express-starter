@@ -1,7 +1,7 @@
 
 const galleryReducer = (state = {
   characters: [],
-  isLoading: false,
+  isLoading: true,
 }, action) => {
 
   let payload = action.payload

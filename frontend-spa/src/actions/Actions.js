@@ -6,3 +6,13 @@ export function addCharactersReceivedFromBackend(characters) {
     },
   };
 }
+export function startLoadingCharactersFromBackend() {
+  return {
+    type: "START_LOADING_CHARACTERS_FROM_BACKEND",
+  };
+}
+export function stopLoadingCharactersFromBackend() {
+  return {
+    type: "STOP_LOADING_CHARACTERS_FROM_BACKEND",
+  };
+}
