@@ -1,18 +1,18 @@
-export function addCharactersReceivedFromBackend(characters) {
+export function addMessagesFromBackend(messages) {
   return {
-    type: "ADD_CHARACTERS_RECEIVED_FROM_BACKEND",
+    type: "ADD_MESSAGE_RECEIVED_FROM_BACKEND",
     payload: {
-      characters: characters,
+      messages: messages,
     },
   };
 }
-export function startLoadingCharactersFromBackend() {
+export function startLoadingMessagesFromBackend() {
   return {
-    type: "START_LOADING_CHARACTERS_FROM_BACKEND",
+    type: "START_LOADING_MESSAGES_FROM_BACKEND",
   };
 }
-export function stopLoadingCharactersFromBackend() {
+export function stopLoadingMessagesFromBackend() {
   return {
-    type: "STOP_LOADING_CHARACTERS_FROM_BACKEND",
+    type: "STOP_LOADING_MESSAGES_FROM_BACKEND",
   };
 }

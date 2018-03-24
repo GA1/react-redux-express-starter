@@ -1,11 +1,12 @@
-.gallery {
+.app-container {
   padding-left: 20px;
   padding-right: 20px;
   width: 100%;
   box-sizing: border-box;
+  text-align: center;
 }
 
-.gallary-title {
+.app-title {
   text-align: center;
-  color: darkslategrey;
+  color: black;
 }

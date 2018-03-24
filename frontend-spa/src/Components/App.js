@@ -2,37 +2,37 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import { connect } from "react-redux";
 import '../css/App.css';
-import { addCharactersReceivedFromBackend, startLoadingCharactersFromBackend, stopLoadingCharactersFromBackend } from '../actions/Actions'
+import { addMessagesFromBackend, startLoadingMessagesFromBackend, stopLoadingMessagesFromBackend } from '../actions/Actions'
 
 
 class App extends Component {
 
   componentDidMount() {
-    this.getImagesFromBackend()
+    this.getMessagesFromBackend()
   }
 
-  getImagesFromBackend() {
-    this.props.startLoadingCharactersFromBackend()
+  getMessagesFromBackend() {
+    this.props.startLoadingMessagesFromBackend()
     var $this = this
-    axios.get('/api/v1/characters')
+    axios.get('/api/v1/hello')
         .then((resp) => {
           let characters = resp.data;
           console.log(characters)
-          $this.props.addCharactersReceivedFromBackend(characters)
+          $this.props.addMessagesFromBackend(characters)
         })
         .catch(function (error) {
           console.log(error)
-          $this.props.stopLoadingCharactersFromBackend()
+          $this.props.stopLoadingMessagesFromBackend()
         });
   }
 
   render() {
-    var characters = this.props.characters
+    var messages = this.props.messages
     return (
-      <div className="gallery">
-        <h1 className="gallary-title">Test HSK writing</h1>
+      <div className="app-container">
+        <h1 className="app-title">react-redux-express-starter</h1>
         {
-          !this.props.isLoading && characters[0].simplifiedCharacter
+          !this.props.isLoading && messages[0].message
         }
         {
           this.props.isLoading && "loading"
@@ -46,21 +46,21 @@ class App extends Component {
 const mapStateToProps = (state) => {
   let r = state.hskReducer;
   return {
-    characters: r.characters,
+    messages: r.messages,
     isLoading: r.isLoading,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addCharactersReceivedFromBackend: (images) => {
-      dispatch(addCharactersReceivedFromBackend(images));
+    addMessagesFromBackend: (images) => {
+      dispatch(addMessagesFromBackend(images));
     },
-    startLoadingCharactersFromBackend: () => {
-      dispatch(startLoadingCharactersFromBackend());
+    startLoadingMessagesFromBackend: () => {
+      dispatch(startLoadingMessagesFromBackend());
     },
-    stopLoadingCharactersFromBackend: () => {
-      dispatch(stopLoadingCharactersFromBackend());
+    stopLoadingMessagesFromBackend: () => {
+      dispatch(stopLoadingMessagesFromBackend());
     },
   };
 };
