@@ -1,24 +1,22 @@
 import r from '../reducers/HskReducer'
 import {
-  addCharactersReceivedFromBackend
+  addMessagesFromBackend
 } from '../actions/Actions'
 
-var dummyCharacter = {
-  'simplifiedCharacter': '的',
-  'hskLevel': 1,
-  'pinyin': 'de',
+var message = {
+  'message': 'hello world',
 }
 
 
 describe('galleryReducer', () => {
 
-  it('should properly add characters from the first page', () => {
+  it('should properly add messages from the first page', () => {
     expect(r({
-          characters: [],
+          messages: [],
           isLoading: true,
-        }, addCharactersReceivedFromBackend([dummyCharacter])
+        }, addMessagesFromBackend([message])
     )).toEqual({
-          characters: [dummyCharacter],
+          messages: [message],
           isLoading: false,
         }
     )

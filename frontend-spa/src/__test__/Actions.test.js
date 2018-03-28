@@ -1,20 +1,18 @@
 import * as actions from '../actions/Actions'
 
-var dummyCharacter = {
-  'simplifiedCharacter': '的',
-  'hskLevel': 1,
-  'pinyin': 'de',
+var message = {
+  'message': 'hello world',
 }
 
 describe('actions', () => {
   it('should create an action to add characters loaded from backend', () => {
     const expectedAction = {
-      type: "ADD_CHARACTERS_RECEIVED_FROM_BACKEND",
+      type: "ADD_MESSAGE_RECEIVED_FROM_BACKEND",
       payload: {
-        characters: [dummyCharacter]
+        messages: [message]
       }
     }
-    expect(actions.addCharactersReceivedFromBackend([dummyCharacter])).toEqual(expectedAction)
+    expect(actions.addMessagesFromBackend([message])).toEqual(expectedAction)
   })
 
 })
