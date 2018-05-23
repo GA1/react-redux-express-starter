@@ -15,14 +15,14 @@ const galleryReducer = (state = {
       };
       break;
 
-    case "START_LOADING_MESSAGES_FROM_BACKEND":
+    case "START_LOADING_MESSAGE_FROM_BACKEND":
       state = {
         ...state,
         isLoading: true
       };
       break;
 
-    case "STOP_LOADING_MESSAGES_FROM_BACKEND":
+    case "STOP_LOADING_MESSAGE_FROM_BACKEND":
       state = {
         ...state,
         isLoading: false

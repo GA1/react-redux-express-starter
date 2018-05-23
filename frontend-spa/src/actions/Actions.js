@@ -1,4 +1,4 @@
-export function addMessagesFromBackend(messages) {
+export function addMessageFromBackend(messages) {
   return {
     type: "ADD_MESSAGE_RECEIVED_FROM_BACKEND",
     payload: {
@@ -6,13 +6,13 @@ export function addMessagesFromBackend(messages) {
     },
   };
 }
-export function startLoadingMessagesFromBackend() {
+export function startLoadingMessageFromBackend() {
   return {
-    type: "START_LOADING_MESSAGES_FROM_BACKEND",
+    type: "START_LOADING_MESSAGE_FROM_BACKEND",
   };
 }
-export function stopLoadingMessagesFromBackend() {
+export function stopLoadingMessageFromBackend() {
   return {
-    type: "STOP_LOADING_MESSAGES_FROM_BACKEND",
+    type: "STOP_LOADING_MESSAGE_FROM_BACKEND",
   };
 }

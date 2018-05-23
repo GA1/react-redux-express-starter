@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import { connect } from "react-redux";
 import '../css/App.css';
-import { addMessagesFromBackend, startLoadingMessagesFromBackend, stopLoadingMessagesFromBackend } from '../actions/Actions'
+import { addMessageFromBackend, startLoadingMessageFromBackend, stopLoadingMessageFromBackend } from '../actions/Actions'
 
 
 class App extends Component {
@@ -12,18 +12,18 @@ class App extends Component {
   }
 
   getMessagesFromBackend() {
-    this.props.startLoadingMessagesFromBackend()
+    this.props.startLoadingMessageFromBackend()
     var $this = this
     axios.get('/api/v1/hello')
-        .then((resp) => {
-          let characters = resp.data;
-          console.log(characters)
-          $this.props.addMessagesFromBackend(characters)
-        })
-        .catch(function (error) {
-          console.log(error)
-          $this.props.stopLoadingMessagesFromBackend()
-        });
+      .then((resp) => {
+        let messages = resp.data;
+        console.log(messages)
+        $this.props.setMessageFromBackend(messages)
+      })
+      .catch(function (error) {
+        console.log(error)
+        $this.props.stopLoadingMessageFromBackend()
+      });
   }
 
   render() {
@@ -53,14 +53,14 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addMessagesFromBackend: (images) => {
-      dispatch(addMessagesFromBackend(images));
+    setMessageFromBackend: (images) => {
+      dispatch(addMessageFromBackend(images));
     },
-    startLoadingMessagesFromBackend: () => {
-      dispatch(startLoadingMessagesFromBackend());
+    startLoadingMessageFromBackend: () => {
+      dispatch(startLoadingMessageFromBackend());
     },
-    stopLoadingMessagesFromBackend: () => {
-      dispatch(stopLoadingMessagesFromBackend());
+    stopLoadingMessageFromBackend: () => {
+      dispatch(stopLoadingMessageFromBackend());
     },
   };
 };

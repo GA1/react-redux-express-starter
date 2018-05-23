@@ -1,6 +1,6 @@
 import r from '../reducers/HskReducer'
 import {
-  addMessagesFromBackend
+  addMessageFromBackend
 } from '../actions/Actions'
 
 var message = {
@@ -14,7 +14,7 @@ describe('galleryReducer', () => {
     expect(r({
           messages: [],
           isLoading: true,
-        }, addMessagesFromBackend([message])
+        }, addMessageFromBackend([message])
     )).toEqual({
           messages: [message],
           isLoading: false,

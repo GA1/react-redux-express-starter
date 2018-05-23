@@ -12,7 +12,7 @@ describe('actions', () => {
         messages: [message]
       }
     }
-    expect(actions.addMessagesFromBackend([message])).toEqual(expectedAction)
+    expect(actions.setMessageFromBackend([message])).toEqual(expectedAction)
   })
 
 })

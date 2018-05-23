@@ -2,9 +2,9 @@ var express = require('express');
 var app = express();
 
 app.get('/api/v1/hello', function (req, res) {
-  res.json([{
+  setTimeout(function(){ res.json([{
   	'message': 'Hello world!'
-  }])  
+  }])}, 1000)
 });
 
 app.listen(4000, function () {
