@@ -1,16 +1,16 @@
 
 const galleryReducer = (state = {
-  messages: [],
+  message: "",
   isLoading: true,
 }, action) => {
 
   let payload = action.payload
 
   switch (action.type) {
-    case "ADD_MESSAGE_RECEIVED_FROM_BACKEND":
+    case "SET_MESSAGE_RECEIVED_FROM_BACKEND":
       state = {
         ...state,
-        messages: state.messages.concat(payload.messages),
+        message: payload.message,
         isLoading: false
       };
       break;

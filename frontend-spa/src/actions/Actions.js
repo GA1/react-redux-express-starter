@@ -1,8 +1,8 @@
-export function addMessageFromBackend(messages) {
+export function setMessageFromBackend(message) {
   return {
-    type: "ADD_MESSAGE_RECEIVED_FROM_BACKEND",
+    type: "SET_MESSAGE_RECEIVED_FROM_BACKEND",
     payload: {
-      messages: messages,
+      message: message,
     },
   };
 }

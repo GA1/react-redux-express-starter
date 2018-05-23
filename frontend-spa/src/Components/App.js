@@ -2,23 +2,22 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import { connect } from "react-redux";
 import '../css/App.css';
-import { addMessageFromBackend, startLoadingMessageFromBackend, stopLoadingMessageFromBackend } from '../actions/Actions'
+import { setMessageFromBackend, startLoadingMessageFromBackend, stopLoadingMessageFromBackend } from '../actions/Actions'
 
 
 class App extends Component {
 
   componentDidMount() {
-    this.getMessagesFromBackend()
+    this.getMessageFromBackend()
   }
 
-  getMessagesFromBackend() {
+  getMessageFromBackend() {
     this.props.startLoadingMessageFromBackend()
     var $this = this
     axios.get('/api/v1/hello')
       .then((resp) => {
-        let messages = resp.data;
-        console.log(messages)
-        $this.props.setMessageFromBackend(messages)
+        let message = resp.data.message;
+        $this.props.setMessageFromBackend(message)
       })
       .catch(function (error) {
         console.log(error)
@@ -27,12 +26,11 @@ class App extends Component {
   }
 
   render() {
-    var messages = this.props.messages
     return (
       <div className="app-container">
         <h1 className="app-title">react-redux-express-starter</h1>
         {
-          !this.props.isLoading && messages[0].message
+          !this.props.isLoading && this.props.message
         }
         {
           this.props.isLoading && "loading"
@@ -46,7 +44,7 @@ class App extends Component {
 const mapStateToProps = (state) => {
   let r = state.hskReducer;
   return {
-    messages: r.messages,
+    message: r.message,
     isLoading: r.isLoading,
   };
 };
@@ -54,7 +52,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     setMessageFromBackend: (images) => {
-      dispatch(addMessageFromBackend(images));
+      dispatch(setMessageFromBackend(images));
     },
     startLoadingMessageFromBackend: () => {
       dispatch(startLoadingMessageFromBackend());
