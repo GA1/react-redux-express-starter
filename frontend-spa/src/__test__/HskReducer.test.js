@@ -6,7 +6,7 @@ import {
 
 describe('galleryReducer', () => {
 
-  it('should properly add messages from the first page', () => {
+  it('should properly set the message loaded from backend', () => {
     expect(r({
         message: "",
         isLoading: true,
