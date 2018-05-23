@@ -16,8 +16,7 @@ class App extends Component {
     var $this = this
     axios.get('/api/v1/hello')
       .then((resp) => {
-        let message = resp.data.message;
-        $this.props.setMessageFromBackend(message)
+        $this.props.setMessageFromBackend(resp.data.message)
       })
       .catch(function (error) {
         console.log(error)
@@ -26,11 +25,12 @@ class App extends Component {
   }
 
   render() {
+    let message = this.props.message;
     return (
       <div className="app-container">
         <h1 className="app-title">react-redux-express-starter</h1>
         {
-          !this.props.isLoading && this.props.message
+          !this.props.isLoading && ("The backend was successfully called. Its message is: " + message)
         }
         {
           this.props.isLoading && "loading"
@@ -51,8 +51,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setMessageFromBackend: (images) => {
-      dispatch(setMessageFromBackend(images));
+    setMessageFromBackend: (message) => {
+      dispatch(setMessageFromBackend(message));
     },
     startLoadingMessageFromBackend: () => {
       dispatch(startLoadingMessageFromBackend());
