@@ -13,4 +13,18 @@ describe('actions', () => {
     expect(actions.setMessageFromBackend(message)).toEqual(expectedAction)
   })
 
+  it('should create an action to start loading the message from backend', () => {
+    const expectedAction = {
+      type: "START_LOADING_MESSAGE_FROM_BACKEND",
+    }
+    expect(actions.startLoadingMessageFromBackend(message)).toEqual(expectedAction)
+  })
+
+  it('should create an action to stop loading the message from backend', () => {
+    const expectedAction = {
+      type: "STOP_LOADING_MESSAGE_FROM_BACKEND",
+    }
+    expect(actions.stopLoadingMessageFromBackend(message)).toEqual(expectedAction)
+  })
+
 })

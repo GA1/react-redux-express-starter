@@ -1,7 +1,7 @@
 import {createStore, combineReducers, applyMiddleware} from "redux";
 import { logger } from 'redux-logger'
 
-import hskReducer from "./reducers/HskReducer";
+import hskReducer from "./reducers/Reducer";
 
 var middleware = []
 if (process.env.NODE_ENV !== 'production')

@@ -1,6 +1,6 @@
 
-const galleryReducer = (state = {
-  message: "",
+const reducer = (state = {
+  message: null,
   isLoading: true,
 }, action) => {
 
@@ -35,4 +35,4 @@ const galleryReducer = (state = {
   return state;
 };
 
-export default galleryReducer;
+export default reducer;
