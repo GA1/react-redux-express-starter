@@ -30,10 +30,13 @@ class App extends Component {
       <div className="app-container">
         <h1 className="app-title">react-redux-express-starter</h1>
         {
-          !this.props.isLoading && ("The backend was successfully called. Its message is: " + message)
+          !this.props.isLoading && !!message && ("The backend was successfully called. Its message is: " + message)
         }
         {
-          this.props.isLoading && "loading"
+          !this.props.isLoading && !message && "The message could not be retrieved from backend :/"
+        }
+        {
+          this.props.isLoading && "Retrieving the message..."
         }
       </div>
     );
