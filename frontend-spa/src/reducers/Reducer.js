@@ -1,7 +1,7 @@
 
 const reducer = (state = {
   message: null,
-  isLoading: true,
+  isCallingBackend: true,
 }, action) => {
 
   let payload = action.payload
@@ -11,21 +11,21 @@ const reducer = (state = {
       state = {
         ...state,
         message: payload.message,
-        isLoading: false
+        isCallingBackend: false
       };
       break;
 
     case "START_LOADING_MESSAGE_FROM_BACKEND":
       state = {
         ...state,
-        isLoading: true
+        isCallingBackend: true
       };
       break;
 
     case "STOP_LOADING_MESSAGE_FROM_BACKEND":
       state = {
         ...state,
-        isLoading: false
+        isCallingBackend: false
       };
       break;
 

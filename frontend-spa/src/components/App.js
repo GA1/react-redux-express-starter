@@ -30,13 +30,13 @@ class App extends Component {
       <div className="app-container">
         <h1 className="app-title">react-redux-express-starter</h1>
         {
-          !this.props.isLoading && !!message && ("The backend was successfully called. Its message is: " + message)
+          !this.props.isCallingBackend && !!message && ("The backend was successfully called. Its message is: " + message)
         }
         {
-          !this.props.isLoading && !message && "The message could not be retrieved from backend :/"
+          !this.props.isCallingBackend && !message && "The message could not be retrieved from backend :/"
         }
         {
-          this.props.isLoading && "Retrieving the message..."
+          this.props.isCallingBackend && "Retrieving the message..."
         }
       </div>
     );
@@ -48,7 +48,7 @@ const mapStateToProps = (state) => {
   let r = state.hskReducer;
   return {
     message: r.message,
-    isLoading: r.isLoading,
+    isCallingBackend: r.isCallingBackend,
   };
 };
 
