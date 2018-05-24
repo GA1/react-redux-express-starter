@@ -12,15 +12,15 @@ class App extends Component {
   }
 
   getMessageFromBackend() {
-    this.props.startLoadingMessageFromBackend()
-    var $this = this
-    axios.get('/api/v1/hello')
+    let props = this.props;
+    props.startLoadingMessageFromBackend()
+    axios.get('/hello')
       .then((resp) => {
-        $this.props.setMessageFromBackend(resp.data.message)
+        props.setMessageFromBackend(resp.data.message)
       })
       .catch(function (error) {
         console.log(error)
-        $this.props.stopLoadingMessageFromBackend()
+        props.stopLoadingMessageFromBackend()
       });
   }
 
