@@ -15,7 +15,7 @@ class App extends Component {
   }
 
   getMessageFromBackend() {
-    let props = this.props
+    const props = this.props
     props.startLoadingMessageFromBackend()
     axios
       .get('/hello')
