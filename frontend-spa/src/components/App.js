@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import { connect } from "react-redux";
 import '../css/App.css';
-import { setMessageFromBackend, startLoadingMessageFromBackend, stopLoadingMessageFromBackend } from '../actions/Actions'
+import { setMessageFromBackend, startLoadingMessageFromBackend, stopLoadingMessageFromBackend } from '../actions/actions'
 
 
 class App extends Component {

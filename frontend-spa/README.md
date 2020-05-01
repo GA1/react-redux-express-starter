@@ -1,16 +1,16 @@
 install the dependencies with:
 ```
-npm install 
+yarn 
 ```
 
 test the app with (it will keep running test on any code change):
 ```
-npm test
+yarn test
 ```
 
 run the app in the development mode (with no automatic reload).
 ```
-npm start
+yarn start
 ```
 
 build app to get a minified/uglified js, css bundles

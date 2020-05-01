@@ -1,7 +1,7 @@
 import r from '../reducers/Reducer'
 import {
   setMessageFromBackend, startLoadingMessageFromBackend, stopLoadingMessageFromBackend
-} from '../actions/Actions'
+} from '../actions/actions'
 
 
 describe('reducer', () => {
