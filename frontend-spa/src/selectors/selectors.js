@@ -10,6 +10,6 @@ export const isCallingBackend = (state) => {
   return getMainReducer(state).isCallingBackend
 }
 
-export const wasBackendCalledSuccessful = (state) => {
-  return !isCallingBackend(state) && getMessage(state)
+export const wasLastCallSuccessful = (state) => {
+  return getMainReducer(state).lastCallWasSuccessful
 }

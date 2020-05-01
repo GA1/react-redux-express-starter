@@ -1,38 +1,41 @@
-
-const reducer = (state = {
+export const initialState = () => ({
   message: null,
-  isCallingBackend: true,
-}, action) => {
+  isCallingBackend: false,
+  lastCallWasSuccessful: false,
+})
 
+const reducer = (state = initialState(), action) => {
   let payload = action.payload
 
   switch (action.type) {
-    case "SET_MESSAGE_RECEIVED_FROM_BACKEND":
+    case 'SET_MESSAGE_RECEIVED_FROM_BACKEND':
       state = {
         ...state,
         message: payload.message,
-        isCallingBackend: false
-      };
-      break;
+        isCallingBackend: false,
+      }
+      break
 
-    case "START_LOADING_MESSAGE_FROM_BACKEND":
+    case 'START_LOADING_MESSAGE_FROM_BACKEND':
       state = {
         ...state,
-        isCallingBackend: true
-      };
-      break;
+        isCallingBackend: true,
+        lastCallWasSuccessful: true,
+      }
+      break
 
-    case "STOP_LOADING_MESSAGE_FROM_BACKEND":
+    case 'STOP_LOADING_MESSAGE_FROM_BACKEND':
       state = {
         ...state,
-        isCallingBackend: false
-      };
-      break;
+        isCallingBackend: false,
+        lastCallWasSuccessful: false,
+      }
+      break
 
     default:
-      break;
+      break
   }
-  return state;
-};
+  return state
+}
 
-export default reducer;
+export default reducer
