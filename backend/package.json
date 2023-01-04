@@ -11,6 +11,6 @@
   },
   "devDependencies": {
     "nodemon": "^1.17.2",
-    "jest-cli": "^23.0.0-alpha.0"
+    "jest-cli": "^29.3.1"
   }
 }
